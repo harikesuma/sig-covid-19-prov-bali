@@ -66,7 +66,7 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="date" class="form-control" id="tanggal" placeholder="Tanggal" name="tanggal" value="{{ date('Y-m-d', strtotime($tanggal))}}" max=
+                                <input type="date" class="form-control" id="tanggal" placeholder="Tanggal" name="tanggal"  max=
                                 <?php
                                     echo date('Y-m-d');
                                 ?>>

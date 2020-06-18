@@ -72,13 +72,11 @@ class PetaSebaranController extends Controller
         $date7 = array();
 
         foreach($date7Before as $d){
-           $tanggal = date('d F Y', strtotime($d->tanggal));
-           array_push($date7, $tanggal);
+           $date = date('d F Y', strtotime($d->tanggal));
+           array_push($date7, $date);
         }
 
-    
-
-        $tanggal = date('d F Y', strtotime($tanggal));
+        // $tanggal = date('d F Y', strtotime($tanggal));
 
         return view('peta-sebaran',['dataKelurahans'=> $dataKelurahans,'total'=>$positif,'tanggal' => $tanggal, 'total7'=> $total7, 'date7'=>$date7]);
     }
@@ -161,17 +159,20 @@ class PetaSebaranController extends Controller
             if($pasien->total_positif == 0){
                 $pasien->color = '#95FF0A';
             }
+
+            elseif($pasien->tl > 0  && $pasien->perawatan > 0){
+                $pasien->color = '#920218'; 
+            }
             elseif($pasien->total_positif > 0 && $pasien->perawatan == 0 ){
                 $pasien->color = '#64991E'; 
             }
-            elseif($pasien->ppln == 1 || $pasien->ppdn == 1  && $pasien->perawatan > 0){
-                $pasien->color = '#E6E708'; 
-            }
-            elseif($pasien->ppln > 1 || $pasien->ppdn > 1  && $pasien->perawatan > 0){
+         
+            elseif($pasien->ppln > 1 || $pasien->ppdn > 1 && $pasien->tl == 0  && $pasien->perawatan > 0){
                 $pasien->color = '#E2556B'; 
             }
-            elseif($pasien->tl >= 1  && $pasien->perawatan > 0){
-                $pasien->color = '#920218'; 
+            
+            elseif($pasien->ppln == 1 || $pasien->ppdn == 1 && $pasien->tl == 0  && $pasien->perawatan > 0){
+                $pasien->color = '#E6E708'; 
             }
         }
 
@@ -201,11 +202,13 @@ class PetaSebaranController extends Controller
             $date7 = array();
     
             foreach($date7Before as $d){
-               $tanggal = date('d F Y', strtotime($d->tanggal));
-               array_push($date7, $tanggal);
+               $date = date('d F Y', strtotime($d->tanggal));
+               array_push($date7, $date);
             }
 
-         $tanggal = date('d F Y', strtotime($tanggal));
+        //  return $request->tanggal;  
+        //  $tanggalNow = date('d F Y', strtotime($request->$tanggal));
+        
 
         return view('peta-sebaran',['dataKelurahans'=> $dataKelurahans,'total'=>$positif,'tanggal' => $tanggal,'total7'=> $total7, 'date7'=>$date7] );
 
