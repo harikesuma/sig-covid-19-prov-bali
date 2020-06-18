@@ -125,7 +125,7 @@
         var dataKelurahans = {!! json_encode($dataKelurahans) !!}
 
  
-        // console.log(dataKelurahans[''][0].kelurahan)
+        console.log(dataKelurahans)
 
         // Instantiate KMZ parser (async)
         var kmzParser = new L.KMZParser({
