@@ -28,7 +28,7 @@ class PetaSebaranController extends Controller
                 $pasien->color = '#95FF0A';
             }
 
-            elseif($pasien->tl >= 0  && $pasien->perawatan > 0){
+            elseif($pasien->tl > 0  && $pasien->perawatan > 0){
                 $pasien->color = '#920218'; 
             }
             elseif($pasien->total_positif > 0 && $pasien->perawatan == 0 ){
