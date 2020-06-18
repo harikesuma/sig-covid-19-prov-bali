@@ -60,9 +60,27 @@ class PetaSebaranController extends Controller
             $positif = $total->total;
         }
 
+        $date7Before = DB::select(
+        "SELECT sum(ppln+ppdn+tl+lainya) as total_7, tanggal from tb_positif where tanggal between adddate(now(),-8) and date(now()) group by tanggal");
+        
+        $total7 = array();
+        
+        foreach($date7Before as $d){
+           array_push($total7, $d->total_7);
+        }
+
+        $date7 = array();
+
+        foreach($date7Before as $d){
+           $tanggal = date('d F Y', strtotime($d->tanggal));
+           array_push($date7, $tanggal);
+        }
+
+    
+
         $tanggal = date('d F Y', strtotime($tanggal));
 
-        return view('peta-sebaran',['dataKelurahans'=> $dataKelurahans,'total'=>$positif,'tanggal' => $tanggal]);
+        return view('peta-sebaran',['dataKelurahans'=> $dataKelurahans,'total'=>$positif,'tanggal' => $tanggal, 'total7'=> $total7, 'date7'=>$date7]);
     }
 
     /**
@@ -170,9 +188,26 @@ class PetaSebaranController extends Controller
             $positif = $total->total;
         }
 
+        
+        $date7Before = DB::select(
+            "SELECT sum(ppln+ppdn+tl+lainya) as total_7, tanggal from tb_positif where tanggal between adddate(now(),-8) and date(now()) group by tanggal");
+            
+            $total7 = array();
+            
+            foreach($date7Before as $d){
+               array_push($total7, $d->total_7);
+            }
+    
+            $date7 = array();
+    
+            foreach($date7Before as $d){
+               $tanggal = date('d F Y', strtotime($d->tanggal));
+               array_push($date7, $tanggal);
+            }
+
          $tanggal = date('d F Y', strtotime($tanggal));
 
-        return view('peta-sebaran',['dataKelurahans'=> $dataKelurahans,'total'=>$positif,'tanggal' => $tanggal]);
+        return view('peta-sebaran',['dataKelurahans'=> $dataKelurahans,'total'=>$positif,'tanggal' => $tanggal,'total7'=> $total7, 'date7'=>$date7] );
 
     }
 
