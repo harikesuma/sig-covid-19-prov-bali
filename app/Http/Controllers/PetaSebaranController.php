@@ -28,16 +28,16 @@ class PetaSebaranController extends Controller
                 $pasien->color = '#95FF0A';
             }
 
-            elseif($pasien->tl > 0  && $pasien->perawatan > 0){
+            elseif($pasien->tl >= 0  && $pasien->perawatan > 0){
                 $pasien->color = '#920218'; 
             }
             elseif($pasien->total_positif > 0 && $pasien->perawatan == 0 ){
                 $pasien->color = '#64991E'; 
             }
          
-            // elseif($pasien->ppln > 1 || $pasien->ppdn > 1 && $pasien->tl == 0  && $pasien->perawatan > 0){
-            //     $pasien->color = '#E2556B'; 
-            // }
+            elseif($pasien->ppln > 1 || $pasien->ppdn > 1 && $pasien->tl == 0  && $pasien->perawatan > 0){
+                $pasien->color = '#E2556B'; 
+            }
             
             elseif($pasien->ppln == 1 || $pasien->ppdn == 1 && $pasien->tl == 0  && $pasien->perawatan > 0){
                 $pasien->color = '#E6E708'; 
