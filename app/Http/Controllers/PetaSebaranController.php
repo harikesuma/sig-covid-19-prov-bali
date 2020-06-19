@@ -61,7 +61,7 @@ class PetaSebaranController extends Controller
         }
 
         $date7Before = DB::select(
-        "SELECT sum(ppln+ppdn+tl+lainya) as total_7, tanggal from tb_positif where tanggal between adddate(now(),-8) and date(now()) group by tanggal");
+        "SELECT sum(ppln+ppdn+tl+lainya) as total_7, tanggal from tb_positif where tanggal between adddate(now(),-7) and date(now()) group by tanggal");
         
         $total7 = array();
         
@@ -191,7 +191,7 @@ class PetaSebaranController extends Controller
 
         
         $date7Before = DB::select(
-            "SELECT sum(ppln+ppdn+tl+lainya) as total_7, tanggal from tb_positif where tanggal between adddate(now(),-8) and date(now()) group by tanggal");
+            "SELECT sum(ppln+ppdn+tl+lainya) as total_7, tanggal from tb_positif where tanggal between adddate(now(),-7) and date(now()) group by tanggal");
             
             $total7 = array();
             
