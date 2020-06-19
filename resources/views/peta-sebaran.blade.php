@@ -92,6 +92,41 @@
               </ul>
             </div>
           </div>
+          <div class="row ml-2 mt-4 mb-4">
+            <div class="card" style="width: 21rem;">
+              <div class="card-header">
+                Legend
+              </div>
+              <table class="table table-light" style="width: 21rem";>
+                <thead>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="wna" style="background-color: #95FF0A"></td>
+                    <td id="lain">tidak pernah ada positif</td>
+                  </tr>
+                  <tr>
+                    <td id="wna" style="background-color: #64991E"></td>
+                    <td id="lain">pernah ada positif dan kondisi (semuanya sudah sembuh atau semuanya meninggal)</td>
+                  </tr>
+                  <tr>
+                    <td id="wna" style="background-color: #E6E708"></td>
+                    <td id="lain">hanya ada 1 positif PP-LN/PP-DN dan kondisi masih dalam perawatan</td>
+                  </tr>
+                  <tr>
+                    <td id="wna" style="background-color: #E2556B"></td>
+                    <td id="lain"> lebih dari 1 positif PP-LN/DN dan kondisi masih dalam perawatan</td>
+                  </tr>
+                  <tr>
+                    <td id="wna" style="background-color: #920218"></td>
+                    <td id="lain">ada 1 atau lebih TL positif dan kondisi masih dalam perawatan</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              </ul>
+            </div>
+          </div>
 
         </div>
 
